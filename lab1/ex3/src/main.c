@@ -56,9 +56,15 @@ int main(int argc, char const *argv[]){
 				push(&operadores, criaCelulaOperador(c));
 			}else if(c == ')'){
 				readingNumFlag = 0;
-				double n1 = pop(&numeros)->num;
-				double n2 = pop(&numeros)->num;
-				char operador = pop(&operadores)->operador;
+				celulaPilha *n1Cell = pop(&numeros);
+				double n1 = n1Cell->num;
+				free(n1Cell);
+				celulaPilha *n2Cell = pop(&numeros);
+				double n2 = n2Cell->num;
+				free(n2Cell);
+				celulaPilha *opCell = pop(&operadores);
+				char operador = opCell->operador;
+				free(opCell);
 				double resultado = opera(n1,n2,operador);
 				push(&numeros, criaCelulaNum(resultado));
 			}else{
