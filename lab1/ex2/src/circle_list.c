@@ -32,15 +32,12 @@ void insert(int x, CircleList *list){
 		list->Last = list->First;
         list->Last->Next = list->First;
 	}else{
-		if(searchNum(x, list) == NULL){
-            CellPointer newCell = (CellPointer) malloc(sizeof(Cell));
-			newCell->num = x;
-            newCell->Next = list->First;
-			list->Last->Next = newCell;
-			list->Last = newCell;
-		}else{
-			printf("Código já existente!\n");
-		}
+        CellPointer newCell = (CellPointer) malloc(sizeof(Cell));
+        newCell->num = x;
+        newCell->Next = list->First;
+        list->Last->Next = newCell;
+        list->Last = newCell;
+		
 	}
 }
 
