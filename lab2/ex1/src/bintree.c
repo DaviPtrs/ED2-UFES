@@ -80,6 +80,34 @@ int search_BinTree(binTree * tree, int key){
     }
 }
 
+
+int height_BinTree(binTree *x){
+    if(x == NULL){
+        printf("NULL binTree\n");
+        exit(1);
+    }else{
+        return recursiveHeight(x->head);
+    }
+}
+
+int recursiveHeight(node * x){
+    if(x != NULL){
+        int hl, hr;
+
+        hl = recursiveHeight(x->left);
+        hr = recursiveHeight(x->right);
+
+        if(hl > hr){
+            return (hl + 1);
+        }else{
+            return (hr + 1);
+        }
+    }
+    return 0;
+}
+
+
+
 void freeBinTree(binTree *x){
     if(x != NULL){
         node *currentNode = x->head;

@@ -22,6 +22,8 @@ int insert_BinTree(binTree *, int);
 
 int search_BinTree(binTree *, int);
 
+int height_BinTree(binTree *);
+
 void freeBinTree(binTree *);
 
 
